@@ -72,7 +72,8 @@
   nav { display: flex; gap: 24px; font-size: 0.9rem; }
   nav a { text-decoration: none; color: var(--muted); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: 0.15s; }
   nav a:hover { color: var(--gold); border-color: var(--gold); }
-  @media (max-width: 680px) { nav { display: none; } }
+  .header-join { display: none; padding: 10px 18px; font-size: 0.88rem; }
+  @media (max-width: 680px) { nav { display: none; } .header-join { display: inline-flex; } }
 
   /* Buttons */
   .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--body); font-weight: 600; font-size: 0.98rem; text-decoration: none; padding: 15px 28px; border-radius: 999px; border: 1px solid transparent; cursor: pointer; transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease; }
@@ -195,6 +196,7 @@
       <a href="#pricing">Membership</a>
       <a href="#join">Join</a>
     </nav>
+    <a class="btn btn-primary header-join" href="#join">Join</a>
   </div>
 </header>
 
@@ -249,7 +251,7 @@
     <p class="section-intro">When ProCierge opens, it's a straightforward monthly subscription — pick your plan, cancel anytime. That's the whole business. No ads, no selling your data.</p>
     <div class="price-grid">
       <div class="price-card"><div class="price-name">Resident</div><div class="price-amount">$9.99<span class="per"> / month</span></div><p class="price-desc">Full access for one verified neighbor — the map, events, community, and help board.</p></div>
-      <div class="price-card featured"><div class="price-name">Family</div><div class="price-amount">$19.99<span class="per"> / month</span></div><p class="price-desc">Everything in Resident, plus kid accounts, trusted circles, and family-safety tools for the whole household.</p></div>
+      <div class="price-card featured"><div class="price-name">Family</div><div class="price-amount">$19.99<span class="per"> / month</span></div><p class="price-desc">At launch: everything in Resident, plus kid accounts, trusted circles, and family-safety tools for the whole household.</p></div>
       <div class="price-card"><div class="price-name">Local Business</div><div class="price-amount">$49<span class="per"> / mo</span></div><p class="price-desc"><strong style="color:var(--ink)">Solo Local</strong> — food trucks, mobile services &amp; one-person shops. Be findable to the whole village.</p><p class="price-note">Brick-and-mortar: $79/mo per location — light up your pin with today's specials.</p></div>
     </div>
     <div class="no-cut">
@@ -285,7 +287,7 @@
         <h4>ProCierge</h4>
         <ul>
           <li><a href="#what">What it is</a></li>
-          <li><a href="#watch">Watch</a></li>
+          <li><a href="#watch">See it</a></li>
           <li><a href="#join">Join the waiting list</a></li>
         </ul>
       </div>
