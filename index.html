@@ -116,6 +116,9 @@
   /* Video */
   .video-wrap { max-width: 340px; margin: 0 auto; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 0 40px rgba(224,189,99,0.15), 0 18px 44px rgba(0,0,0,0.5); background: #000; }
   .video-wrap video { display: block; width: 100%; height: auto; }
+  .film { max-width: 880px; margin: 0 auto 36px; }
+  .film video { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); background: #000; box-shadow: 0 0 40px rgba(224,189,99,0.15), 0 18px 44px rgba(0,0,0,0.5); }
+  .film figcaption { margin-top: 10px; text-align: center; font-size: 0.95rem; opacity: 0.75; }
 
   /* Heart */
   .heart-section { text-align: center; }
@@ -207,7 +210,7 @@
     <p class="lede">A private, identity-verified app for real neighbors — your local businesses, events, and family-safety tools on one living map. Built on accountable people instead of anonymous strangers. It's the village you wish your neighborhood still had.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#join">Join the waiting list &rarr;</a>
-      <a class="btn btn-ghost" href="#watch">See a first look</a>
+      <a class="btn btn-ghost" href="#watch">Watch the film</a>
     </div>
     <p class="hero-note">Launching soon in the Gulf South · Join the list → 3 months free</p>
     <div class="divider" aria-hidden="true">
@@ -231,10 +234,29 @@
 
   <section id="watch" class="wrap">
     <h2>See it</h2>
-    <p class="section-intro">A first look at the village — full trailer coming soon.</p>
-    <div class="video-wrap">
-      <img src="splash.png" alt="ProCierge — Your community. Connected." style="width:100%; height:auto; display:block;">
-    </div>
+    <p class="section-intro">A first look at the village — a minute, then the longer versions if you want them. Nothing plays until you press play.</p>
+    <!-- preload="none" + no autoplay: the page costs a poster image, not megabytes, until someone chooses to watch. -->
+    <figure class="film">
+      <video controls preload="none" playsinline poster="video/commercial-poster.jpg">
+        <source src="video/commercial.mp4" type="video/mp4">
+        Your browser cannot play this video.
+      </video>
+      <figcaption>ProCierge in a minute — 1:08.</figcaption>
+    </figure>
+    <figure class="film">
+      <video controls preload="none" playsinline poster="video/explainer-poster.jpg">
+        <source src="video/explainer.mp4" type="video/mp4">
+        Your browser cannot play this video.
+      </video>
+      <figcaption>What it is, who it's for, and the rules it's built on — 3:00.</figcaption>
+    </figure>
+    <figure class="film">
+      <video controls preload="none" playsinline poster="video/walkthrough-poster.jpg">
+        <source src="video/walkthrough.mp4" type="video/mp4">
+        Your browser cannot play this video.
+      </video>
+      <figcaption>A lap around the app, all five places — 2:44, no sound.</figcaption>
+    </figure>
   </section>
 
   <section id="heart" class="heart-section wrap">
