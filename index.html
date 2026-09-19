@@ -73,7 +73,8 @@
   nav a { text-decoration: none; color: var(--muted); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: 0.15s; }
   nav a:hover { color: var(--gold); border-color: var(--gold); }
   .header-join { display: none; padding: 10px 18px; font-size: 0.88rem; }
-  @media (max-width: 680px) { nav { display: none; } .header-join { display: inline-flex; } }
+  @media (max-width: 680px) { header { display: none; } .hero { padding-top: 16px; } }
+  .header-row { justify-content: center; }
 
   /* Buttons */
   .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--body); font-weight: 600; font-size: 0.98rem; text-decoration: none; padding: 15px 28px; border-radius: 999px; border: 1px solid transparent; cursor: pointer; transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease; }
@@ -87,11 +88,18 @@
   /* Hero */
   .hero { text-align: center; padding: 28px 0 44px; opacity: 0; transform: translateY(10px); animation: rise 0.7s ease forwards 0.1s; }
   @keyframes rise { to { opacity: 1; transform: translateY(0); } }
-  .hero-banner { margin: 0 auto 16px; padding: 0; max-width: 340px; }
+  .hero-banner { margin: 0 auto 14px; padding: 0; max-width: 340px; }
+  @media (max-width: 680px) { .hero-banner { max-width: 250px; margin-bottom: 10px; } }
   .hero-banner img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 0 44px rgba(224,189,99,0.22), 0 18px 50px rgba(0,0,0,0.5); display: block; }
   h1 { font-family: var(--display); font-weight: 600; font-size: clamp(2.6rem, 7vw, 4.2rem); line-height: 1; letter-spacing: 0.02em; color: var(--gold); margin: 0 0 8px; text-shadow: 0 0 34px rgba(224,189,99,0.35); }
   .tagline { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 3vw, 1.6rem); color: var(--sub); margin: 0 0 26px; }
   .lede { font-size: 1.1rem; color: var(--muted); max-width: 60ch; margin: 0 auto 8px; }
+  .one-line { font-size: 1.14rem; color: var(--ink); max-width: 34ch; margin: 0 auto 4px; line-height: 1.45; }
+  .steps { list-style: none; counter-reset: step; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; text-align: left; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; color: var(--sub); font-size: 0.97rem; line-height: 1.45; }
+  .steps li::before { content: counter(step); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 600; color: var(--gold-bright); border: 1px solid var(--gold); background: rgba(20,195,160,0.14); }
+  .steps strong { color: var(--ink); font-weight: 600; }
+  .foot-icon { width: 34px; height: 34px; border-radius: 8px; vertical-align: middle; margin-right: 8px; box-shadow: 0 0 12px rgba(224,189,99,0.3); }
   .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: center; }
   .hero-note { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; color: var(--teal); margin-top: 22px; text-transform: uppercase; }
 
@@ -132,6 +140,7 @@
   .heart-stage img { position: relative; width: 100%; height: 100%; object-fit: contain; -webkit-mask-image: radial-gradient(ellipse 46% 58% at 50% 44%, #000 55%, transparent 78%); mask-image: radial-gradient(ellipse 46% 58% at 50% 44%, #000 55%, transparent 78%); animation: beat 2.6s ease-in-out infinite; transform-origin: 50% 44%; }
   @keyframes beat { 0%,100% { transform: scale(1); } 14% { transform: scale(1.07); } 28% { transform: scale(1.0); } 42% { transform: scale(1.05); } }
   @keyframes glowpulse { 0%,100% { opacity: 0.55; } 30% { opacity: 1; } }
+  .heart-means { color: var(--sub); max-width: 46ch; margin: -18px auto 26px; font-size: 1.02rem; }
   .heart-cta { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
 
   /* Pricing */
@@ -151,13 +160,15 @@
 
   /* Waitlist */
   #join { text-align: center; }
-  .join-card { max-width: 520px; margin: 0 auto; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 36px 30px; backdrop-filter: blur(6px); box-shadow: 0 0 40px rgba(224,189,99,0.12); }
-  .join-form { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
+  .join-card { max-width: 520px; margin: 0 auto; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px 26px; backdrop-filter: blur(6px); box-shadow: 0 0 40px rgba(224,189,99,0.12); }
+  .join-form { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+  @media (max-width: 680px) { .join-card { padding: 20px 18px; } .join-card h2 { font-size: 1.45rem; margin-bottom: 4px; } .hero-duo { margin-top: 18px; } .join-form input, .join-form .btn { padding-top: 13px; padding-bottom: 13px; } }
   .join-form input { font-family: var(--body); font-size: 1rem; padding: 15px 18px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,0.25); color: var(--ink); }
   .join-form input::placeholder { color: var(--muted); }
   .join-form input:focus { outline: none; border-color: var(--gold); }
   .join-form .btn-primary { justify-content: center; width: 100%; border: none; }
   .join-msg { margin-top: 16px; font-size: 0.98rem; min-height: 1.4em; }
+  .join-msg:empty { margin: 0; min-height: 0; }
   .join-msg.ok { color: var(--teal); }
   .join-msg.err { color: var(--red); }
   .join-fine { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 14px; }
@@ -194,16 +205,11 @@
 
 <header>
   <div class="wrap header-row">
-    <div class="brand-group">
-      <button class="corner-heart" onclick="openHeart()" aria-label="Be a Blessing — the heart of ProCierge"><img src="heart.png" alt=""></button>
-      <a href="#top" class="brand"><img src="appicon.png" alt="ProCierge" class="brand-icon"><span class="brand-name">ProCierge</span></a>
-    </div>
     <nav>
       <a href="#what">What it is</a>
       <a href="#pricing">Membership</a>
       <a href="#join">Join</a>
     </nav>
-    <a class="btn btn-primary header-join" href="#join">Join</a>
   </div>
 </header>
 
@@ -211,12 +217,12 @@
 
   <section class="hero wrap">
     <h1 class="hero-banner"><img src="banner.png" alt="ProCierge — Your community. Connected."></h1>
-    <p class="lede">A private, identity-verified app for real neighbors — your local businesses, events, and family-safety tools on one living map. Built on accountable people instead of anonymous strangers. It's the village you wish your neighborhood still had.</p>
+    <p class="one-line">ProCierge is an app for your town — local businesses, events, and neighbors on one map, and every member is a verified real person.</p>
     <!-- ⭐ Kayla 2026-09-18: sign-up and the film side by side at the top. -->
     <div class="hero-duo" id="join">
       <div class="join-card">
       <h2>Join the waiting list</h2>
-      <p class="section-intro" style="margin-bottom:0;">Join the list and you're a <strong style="color:var(--gold)">Founding Villager</strong> — <strong style="color:var(--gold)">3 months free</strong> when ProCierge opens in your town. Everyone who joins after launch gets one month. We'll only email you about ProCierge — nothing else, ever.</p>
+      <p class="section-intro" style="margin-bottom:0;">Free to join. <strong style="color:var(--gold)">3 months free</strong> when it opens in your town.</p>
       <form class="join-form" id="joinForm" onsubmit="return joinWaitlist(event)">
         <input type="email" id="wl-email" placeholder="Your email" required autocomplete="email">
         <input type="text" id="wl-town" placeholder="Your town (optional)" autocomplete="address-level2">
@@ -227,6 +233,12 @@
         <div class="big">You're on the list ❤️</div>
         <p style="color:var(--sub);margin:0;">We'll let you know the moment ProCierge opens in your area. Thank you for being an early one.</p>
       </div>
+      <ol class="steps">
+        <li><span><strong>Join the list.</strong> Just your email.</span></li>
+        <li><span><strong>It opens in your town.</strong> We email you the day it does.</span></li>
+        <li><span><strong>Get verified, and you're in</strong> — with real neighbors, no strangers.</span></li>
+      </ol>
+      <p class="section-intro" style="margin:18px 0 0;font-size:0.95rem;">Join the list and you're a <strong style="color:var(--gold)">Founding Villager</strong> — 3 months free when ProCierge opens in your town. Everyone who joins after launch gets one month. We'll only email you about ProCierge — nothing else, ever.</p>
       <div class="join-fine">Your email stays private. One verified human, one account — always.</div>
     </div>
       <figure class="film hero-film">
@@ -249,6 +261,7 @@
   <section id="what" class="wrap">
     <h2>What you get</h2>
     <p class="section-intro">One verified place for everything that actually happens where you live.</p>
+    <p class="lede" style="text-align:center;margin:-22px auto 34px;">A private, identity-verified app for real neighbors — your local businesses, events, and family-safety tools on one living map. Built on accountable people instead of anonymous strangers. It's the village you wish your neighborhood still had.</p>
     <div class="features">
       <div class="feature"><img class="feature-orb" src="orb-pulse.png" alt=""><h3>The Pulse of your town</h3><p>Every business, event, and happening near you lights up on one living map. The pulse of your town is what gives it life — not a feed to scroll, a place that's alive.</p></div>
       <div class="feature"><img class="feature-orb" src="orb-verified.png" alt=""><h3>Real, verified people</h3><p>Every member is an identity-verified adult. No anonymous accounts, no bots, no strangers hiding behind a screen name.</p></div>
@@ -280,9 +293,10 @@
   <section id="heart" class="heart-section wrap">
     <h2>Be a Blessing</h2>
     <p class="section-intro">ProCierge keeps one thing — and it isn't likes.</p>
+    <p class="heart-means">Your heart is a private record of the good you do for neighbors. It grows when you help — no likes, no followers, no public score.</p>
     <button class="heart-btn" onclick="openHeart()" aria-label="What the heart means">
       <div class="heart-stage"><img src="heart.png" alt="The Be a Blessing heart"></div>
-      <div class="heart-cta">Tap the heart</div>
+      <div class="heart-cta">Tap the heart to read more</div>
     </button>
   </section>
 
@@ -307,7 +321,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <h4>ProCierge</h4>
+        <h4><img src="appicon.png" alt="" class="foot-icon">ProCierge</h4>
         <ul>
           <li><a href="#what">What it is</a></li>
           <li><a href="#watch">See it</a></li>
