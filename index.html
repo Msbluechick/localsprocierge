@@ -85,13 +85,13 @@
   .btn-ghost:active { transform: scale(0.98); }
 
   /* Hero */
-  .hero { text-align: center; padding: 64px 0 44px; opacity: 0; transform: translateY(10px); animation: rise 0.7s ease forwards 0.1s; }
+  .hero { text-align: center; padding: 28px 0 44px; opacity: 0; transform: translateY(10px); animation: rise 0.7s ease forwards 0.1s; }
   @keyframes rise { to { opacity: 1; transform: translateY(0); } }
-  .hero-banner { margin: 0 auto 24px; padding: 0; max-width: 660px; }
+  .hero-banner { margin: 0 auto 16px; padding: 0; max-width: 340px; }
   .hero-banner img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 0 44px rgba(224,189,99,0.22), 0 18px 50px rgba(0,0,0,0.5); display: block; }
   h1 { font-family: var(--display); font-weight: 600; font-size: clamp(2.6rem, 7vw, 4.2rem); line-height: 1; letter-spacing: 0.02em; color: var(--gold); margin: 0 0 8px; text-shadow: 0 0 34px rgba(224,189,99,0.35); }
   .tagline { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 3vw, 1.6rem); color: var(--sub); margin: 0 0 26px; }
-  .lede { font-size: 1.16rem; color: var(--muted); max-width: 54ch; margin: 0 auto 30px; }
+  .lede { font-size: 1.1rem; color: var(--muted); max-width: 60ch; margin: 0 auto 8px; }
   .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: center; }
   .hero-note { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; color: var(--teal); margin-top: 22px; text-transform: uppercase; }
 
@@ -116,6 +116,10 @@
   /* Video */
   .video-wrap { max-width: 340px; margin: 0 auto; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 0 40px rgba(224,189,99,0.15), 0 18px 44px rgba(0,0,0,0.5); background: #000; }
   .video-wrap video { display: block; width: 100%; height: auto; }
+  .hero-duo { display: grid; grid-template-columns: 1fr 1.25fr; gap: 26px; align-items: start; max-width: 1060px; margin: 28px auto 8px; text-align: left; }
+  .hero-duo .join-card { margin: 0; max-width: none; }
+  .hero-duo .hero-film { margin: 0; max-width: none; }
+  @media (max-width: 860px) { .hero-duo { grid-template-columns: 1fr; } }
   .film { max-width: 880px; margin: 0 auto 36px; }
   .film video { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); background: #000; box-shadow: 0 0 40px rgba(224,189,99,0.15), 0 18px 44px rgba(0,0,0,0.5); }
   .film figcaption { margin-top: 10px; text-align: center; font-size: 0.95rem; opacity: 0.75; }
@@ -208,9 +212,30 @@
   <section class="hero wrap">
     <h1 class="hero-banner"><img src="banner.png" alt="ProCierge — Your community. Connected."></h1>
     <p class="lede">A private, identity-verified app for real neighbors — your local businesses, events, and family-safety tools on one living map. Built on accountable people instead of anonymous strangers. It's the village you wish your neighborhood still had.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#join">Join the waiting list &rarr;</a>
-      <a class="btn btn-ghost" href="#watch">Watch the film</a>
+    <!-- ⭐ Kayla 2026-09-18: sign-up and the film side by side at the top. -->
+    <div class="hero-duo" id="join">
+      <div class="join-card">
+      <h2>Join the waiting list</h2>
+      <p class="section-intro" style="margin-bottom:0;">Join the list and you're a <strong style="color:var(--gold)">Founding Villager</strong> — <strong style="color:var(--gold)">3 months free</strong> when ProCierge opens in your town. Everyone who joins after launch gets one month. We'll only email you about ProCierge — nothing else, ever.</p>
+      <form class="join-form" id="joinForm" onsubmit="return joinWaitlist(event)">
+        <input type="email" id="wl-email" placeholder="Your email" required autocomplete="email">
+        <input type="text" id="wl-town" placeholder="Your town (optional)" autocomplete="address-level2">
+        <button type="submit" class="btn btn-primary" id="wl-btn">Save my spot &nbsp;❤️</button>
+      </form>
+      <div class="join-msg" id="wl-msg"></div>
+      <div class="join-success" id="wl-success">
+        <div class="big">You're on the list ❤️</div>
+        <p style="color:var(--sub);margin:0;">We'll let you know the moment ProCierge opens in your area. Thank you for being an early one.</p>
+      </div>
+      <div class="join-fine">Your email stays private. One verified human, one account — always.</div>
+    </div>
+      <figure class="film hero-film">
+        <video controls preload="none" playsinline poster="video/commercial-poster.jpg">
+          <source src="video/commercial.mp4" type="video/mp4">
+          Your browser cannot play this video.
+        </video>
+        <figcaption>ProCierge in a minute — 1:08. Nothing plays until you press play.</figcaption>
+      </figure>
     </div>
     <p class="hero-note">Launching soon in the Gulf South · Join the list → 3 months free</p>
     <div class="divider" aria-hidden="true">
@@ -234,15 +259,8 @@
 
   <section id="watch" class="wrap">
     <h2>See it</h2>
-    <p class="section-intro">A first look at the village — a minute, then the longer versions if you want them. Nothing plays until you press play.</p>
+    <p class="section-intro">The longer versions, if you want them. Nothing plays until you press play.</p>
     <!-- preload="none" + no autoplay: the page costs a poster image, not megabytes, until someone chooses to watch. -->
-    <figure class="film">
-      <video controls preload="none" playsinline poster="video/commercial-poster.jpg">
-        <source src="video/commercial.mp4" type="video/mp4">
-        Your browser cannot play this video.
-      </video>
-      <figcaption>ProCierge in a minute — 1:08.</figcaption>
-    </figure>
     <figure class="film">
       <video controls preload="none" playsinline poster="video/explainer-poster.jpg">
         <source src="video/explainer.mp4" type="video/mp4">
@@ -282,23 +300,6 @@
     </div>
   </section>
 
-  <section id="join" class="wrap">
-    <div class="join-card">
-      <h2>Join the waiting list</h2>
-      <p class="section-intro" style="margin-bottom:0;">Join the list and you're a <strong style="color:var(--gold)">Founding Villager</strong> — <strong style="color:var(--gold)">3 months free</strong> when ProCierge opens in your town. Everyone who joins after launch gets one month. We'll only email you about ProCierge — nothing else, ever.</p>
-      <form class="join-form" id="joinForm" onsubmit="return joinWaitlist(event)">
-        <input type="email" id="wl-email" placeholder="Your email" required autocomplete="email">
-        <input type="text" id="wl-town" placeholder="Your town (optional)" autocomplete="address-level2">
-        <button type="submit" class="btn btn-primary" id="wl-btn">Save my spot &nbsp;❤️</button>
-      </form>
-      <div class="join-msg" id="wl-msg"></div>
-      <div class="join-success" id="wl-success">
-        <div class="big">You're on the list ❤️</div>
-        <p style="color:var(--sub);margin:0;">We'll let you know the moment ProCierge opens in your area. Thank you for being an early one.</p>
-      </div>
-      <div class="join-fine">Your email stays private. One verified human, one account — always.</div>
-    </div>
-  </section>
 
 </main>
 
