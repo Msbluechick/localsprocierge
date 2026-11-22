@@ -1,0 +1,13 @@
+{
+  "name": "localsprocierge-site",
+  "private": true,
+  "type": "module",
+  "description": "The ProCierge landing page. Static HTML; this file exists only for the QR test.",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "devDependencies": {
+    "jsqr": "^1.4.0",
+    "pngjs": "^7.0.0"
+  }
+}

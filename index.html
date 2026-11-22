@@ -112,6 +112,17 @@
     .getapp-actions .btn { width: 100%; justify-content: center; }
   }
   .header-getapp { color: var(--gold) !important; font-weight: 600; }
+  /* ---------- App Store QR (2026-11-22) ---------- */
+  /* Desktop only: on the phone you tap the buttons above. QR made with qrcode (MIT). */
+  .getapp-qr { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 16px; text-align: left; }
+  .getapp-qr figure { margin: 0; flex: none; text-align: center; }
+  .getapp-qr img { display: block; width: 170px; height: 170px; background: #fff; padding: 8px; border-radius: 14px; border: 1px solid var(--line); }
+  .getapp-qr figcaption { margin-top: 6px; font-size: 0.82rem; color: var(--muted); max-width: 170px; }
+  .getapp-qr-links { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .store-badge { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 8px; border: 1.5px solid var(--gold); background: rgba(11,28,27,0.6); color: var(--gold-bright); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .store-badge svg { display: block; }
+  .getapp-qr-links a { color: var(--gold); font-size: 0.9rem; }
+  @media (max-width: 680px) { .getapp-qr { display: none; } }
 
   .divider { width: 180px; height: 26px; margin: 40px auto 0; }
   .divider svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 0 8px rgba(224,189,99,0.4)); }
@@ -239,6 +250,22 @@
       <div class="getapp-actions">
         <a class="btn btn-primary" href="https://apps.apple.com/us/app/procierge/id6787199568">Download on iPhone</a>
         <a class="btn btn-ghost" href="https://mydamnself.com/testers">Android: join the testers</a>
+      </div>
+      <!--
+        ⭐ APP STORE QR (2026-11-22). The listing was opened 2026-11-22, HTTP 200,
+        title "ProCierge App - App Store"; the QR decodes to exactly that address.
+        Image made with qrcode (MIT), npmjs.com/package/qrcode. No Google Play QR:
+        no public Play listing is live, so Android keeps the testers link above.
+      -->
+      <div class="getapp-qr">
+        <figure>
+          <img src="app-store-qr.png" width="170" height="170" alt="QR code that opens the ProCierge listing on the App Store">
+          <figcaption>Scan to get the app on iPhone</figcaption>
+        </figure>
+        <div class="getapp-qr-links">
+          <span class="store-badge" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>App Store</span>
+          <a href="https://apps.apple.com/us/app/procierge/id6787199568">Open the App Store listing</a>
+        </div>
       </div>
     </div>
     <!-- ⭐ Kayla 2026-09-18: sign-up and the film side by side at the top. -->
